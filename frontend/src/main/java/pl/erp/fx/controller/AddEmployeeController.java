@@ -40,7 +40,7 @@ public class AddEmployeeController implements Initializable {
         popupFactory = new PopupFactory();
         employeeRestClient = new EmployeeRestClient();
     }
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializeCancelButton();

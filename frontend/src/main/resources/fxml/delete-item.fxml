@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="deleteItemBorderPane" maxHeight="-Infinity" maxWidth="-Infinity"
             minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0"
