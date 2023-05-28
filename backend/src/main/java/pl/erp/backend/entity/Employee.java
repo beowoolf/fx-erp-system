@@ -5,8 +5,8 @@ import pl.erp.backend.dto.EmployeeDto;
 
 import javax.persistence.*;
 
-@Entity
 @Data
+@Entity
 public class Employee {
 
     @Id

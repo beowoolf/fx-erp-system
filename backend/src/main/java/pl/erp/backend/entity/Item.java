@@ -5,8 +5,8 @@ import pl.erp.backend.dto.ItemSaveDto;
 
 import javax.persistence.*;
 
-@Entity
 @Data
+@Entity
 public class Item {
 
     @Id
@@ -19,8 +19,8 @@ public class Item {
     @Column
     private Double quantity;
 
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idQuantityType")
+    @ManyToOne(fetch = FetchType.EAGER)
     private QuantityType quantityType;
 
     @ManyToOne(fetch = FetchType.EAGER)
