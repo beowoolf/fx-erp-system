@@ -30,7 +30,6 @@ public class WarehouseService {
         List<Warehouse> warehouseList = warehouseRepository.findAll();
         List<WarehouseDto> warehouseDtoList = warehouseList.stream()
                 .map(WarehouseDto::of).collect(Collectors.toList());
-
         Optional<Warehouse> optionalWarehouse = warehouseList.stream().filter(x -> idWarehouse.equals(x.getIdWarehouse())).findFirst();
         Warehouse selectedWarehouse = optionalWarehouse.get();
         List<ItemDto> itemDtoList = selectedWarehouse.getItems().stream()
