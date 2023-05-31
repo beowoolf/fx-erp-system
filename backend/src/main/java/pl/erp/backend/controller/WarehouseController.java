@@ -36,11 +36,10 @@ public class WarehouseController {
 
     @GetMapping("/warehouse_module_data")
     public WarehouseModuleDto getWarehouseModuleData(@RequestParam Optional<String> idWarehouse) {
-        if (idWarehouse.isPresent()) {
+        if (idWarehouse.isPresent())
             return warehouseService.getWarehouseModuleData(Long.parseLong(idWarehouse.get()));
-        } else {
+        else
             return warehouseService.getWarehouseModuleData();
-        }
     }
 
 }

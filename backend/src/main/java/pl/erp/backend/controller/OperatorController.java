@@ -36,15 +36,13 @@ public class OperatorController {
     @PostMapping("/verify_operator_credentials")
     public OperatorAuthenticationResultDto verifyOperatorCredentials(@RequestBody OperatorCredentialsDto operatorCredentialsDto) {
         Optional<Operator> operatorOptional = operatorRepository.findByLogin(operatorCredentialsDto.getLogin());
-        if (!operatorOptional.isPresent()) {
+        if (!operatorOptional.isPresent())
             return OperatorAuthenticationResultDto.createUnauthenticated();
-        }
         Operator operator = operatorOptional.get();
-        if (!operator.getPassword().equals(operatorCredentialsDto.getPassword())) {
+        if (!operator.getPassword().equals(operatorCredentialsDto.getPassword()))
             return OperatorAuthenticationResultDto.createUnauthenticated();
-        } else {
+        else
             return OperatorAuthenticationResultDto.of(operator);
-        }
     }
 
 }

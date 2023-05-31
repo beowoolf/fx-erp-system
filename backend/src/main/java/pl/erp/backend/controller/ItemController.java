@@ -25,9 +25,9 @@ public class ItemController {
 
     @PostMapping("/items")
     public ItemDto newItem(@RequestBody ItemSaveDto dto) {
-        if (dto.getIdItem() == null) {
+        if (dto.getIdItem() == null)
             return ItemDto.of(itemService.saveItem(dto));
-        } else {
+        else {
             Item item = itemRepository.findById(dto.getIdItem()).get();
             item.setName(dto.getName());
             item.setQuantity(dto.getQuantity());

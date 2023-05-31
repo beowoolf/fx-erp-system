@@ -19,17 +19,16 @@ public class EmployeeController {
 
     @PostMapping("/employees")
     EmployeeDto saveOrUpdateEmployee(@RequestBody EmployeeDto dto) {
-        if (dto.getIdEmployee() == null) {
+        if (dto.getIdEmployee() == null)
             return EmployeeDto.of(employeeRepository.save(Employee.of(dto)));
-        } else {
+        else {
             Optional<Employee> optionalEmployee = employeeRepository.findById(dto.getIdEmployee());
             if (optionalEmployee.isPresent()) {
                 Employee employee = optionalEmployee.get();
                 employee.updateEmployee(dto);
                 return EmployeeDto.of(employeeRepository.save(employee));
-            } else {
+            } else
                 throw new RuntimeException("Can't find user with given id: " + dto.getIdEmployee());
-            }
         }
     }
 
