@@ -54,7 +54,6 @@ public class AppController implements Initializable {
     }
 
     private void logout() {
-
         try {
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource(LOGIN_VIEW));

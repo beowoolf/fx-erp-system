@@ -95,7 +95,6 @@ public class EmployeeController implements Initializable {
         editButton.setOnAction(x -> {
             EmployeeTableModel selectedEmployee = employeeTableView.getSelectionModel().getSelectedItem();
             if (selectedEmployee != null) {
-
                 try {
                     Stage waitingPopup = popupFactory.createWaitingPopup("Loading employee data...");
                     waitingPopup.show();

@@ -139,7 +139,6 @@ public class WarehouseController implements Initializable {
 
     private void initializeAddItemButton() {
         addButton.setOnAction(x -> {
-
             try {
                 Stage stage = createItemCrudStage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(ADD_ITEM_FXML));
