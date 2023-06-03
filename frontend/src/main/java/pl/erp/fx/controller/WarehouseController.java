@@ -80,9 +80,8 @@ public class WarehouseController implements Initializable {
     private void initializeDeleteButton() {
         deleteButton.setOnAction(x -> {
             ItemTableModel selectedItem = warehouseTableView.getSelectionModel().getSelectedItem();
-            if (selectedItem == null) {
+            if (selectedItem == null)
                 return;
-            }
             try {
                 Stage stage = createItemCrudStage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(DELETE_ITEM_VIEW));
@@ -100,9 +99,8 @@ public class WarehouseController implements Initializable {
     private void initializeEditItemButton() {
         editButton.setOnAction(x -> {
             ItemTableModel selectedItem = warehouseTableView.getSelectionModel().getSelectedItem();
-            if (selectedItem == null) {
+            if (selectedItem == null)
                 return;
-            }
             try {
                 Stage stage = createItemCrudStage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(EDIT_ITEM_FXML));
@@ -120,9 +118,8 @@ public class WarehouseController implements Initializable {
     private void initializeViewItemButton() {
         viewButton.setOnAction(x -> {
             ItemTableModel selectedItem = warehouseTableView.getSelectionModel().getSelectedItem();
-            if (selectedItem == null) {
+            if (selectedItem == null)
                 return;
-            }
             try {
                 Stage stage = createItemCrudStage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(VIEW_ITEM_FXML));
@@ -164,9 +161,8 @@ public class WarehouseController implements Initializable {
 
     private void initializeComboBox() {
         warehouseComboBox.valueProperty().addListener(((observable, oldValue, newValue) -> {
-            if (newValue == null) {
+            if (newValue == null)
                 return;
-            }
             if (!newValue.equals(oldValue) && oldValue != null) {
                 WarehouseDto warehouseDto = warehouseComboBox.getSelectionModel().getSelectedItem();
                 loadItemData(warehouseDto);

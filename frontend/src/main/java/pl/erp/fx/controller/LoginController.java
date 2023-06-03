@@ -66,11 +66,10 @@ public class LoginController implements Initializable {
         authenticator.authenticate(dto, (authenticationResult) -> {
             Platform.runLater(() -> {
                 waitingPopup.close();
-                if (authenticationResult.isAuthenticated()) {
+                if (authenticationResult.isAuthenticated())
                     openAppAndCloseLoginStage();
-                } else {
+                else
                     showIncorrectCredentialsMessage();
-                }
             });
         });
     }

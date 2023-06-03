@@ -124,9 +124,9 @@ public class EmployeeController implements Initializable {
     private void initializeViewEmployeeButton() {
         viewButton.setOnAction(x -> {
             EmployeeTableModel employee = employeeTableView.getSelectionModel().getSelectedItem();
-            if (employee == null) {
+            if (employee == null)
                 return;
-            } else {
+            else {
                 try {
                     Stage waitingPopup = popupFactory.createWaitingPopup("Loading employee data...");
                     waitingPopup.show();

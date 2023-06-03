@@ -29,11 +29,10 @@ public class ItemRestClient {
 
     public void saveItem(ItemSaveDto dto, ProcessFinishedHandler handler) {
         ResponseEntity<ItemDto> responseEntity = restTemplate.postForEntity(ITEMS_URL, dto, ItemDto.class);
-        if (HttpStatus.OK.equals(responseEntity.getStatusCode())) {
+        if (HttpStatus.OK.equals(responseEntity.getStatusCode()))
             handler.handle();
-        } else {
+        else
             throw new RuntimeException("Can't save dto: " + dto);
-        }
     }
 
     public ItemDto getItem(Long idItem) {
