@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.erp.backend.dto.EmployeeDto;
 import pl.erp.backend.entity.Employee;
 import pl.erp.backend.repository.EmployeeRepository;
+import pl.erp.backend.util.EmployeeUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,13 +21,13 @@ public class EmployeeController {
     @PostMapping("/employees")
     EmployeeDto saveOrUpdateEmployee(@RequestBody EmployeeDto dto) {
         if (dto.getIdEmployee() == null)
-            return EmployeeDto.of(employeeRepository.save(Employee.of(dto)));
+            return EmployeeUtils.of(employeeRepository.save(EmployeeUtils.of(dto)));
         else {
             Optional<Employee> optionalEmployee = employeeRepository.findById(dto.getIdEmployee());
             if (optionalEmployee.isPresent()) {
                 Employee employee = optionalEmployee.get();
                 employee.updateEmployee(dto);
-                return EmployeeDto.of(employeeRepository.save(employee));
+                return EmployeeUtils.of(employeeRepository.save(employee));
             } else
                 throw new RuntimeException("Can't find user with given id: " + dto.getIdEmployee());
         }
@@ -36,7 +37,7 @@ public class EmployeeController {
     List<EmployeeDto> listEmployees() {
         return employeeRepository.findAll()
                 .stream()
-                .map(EmployeeDto::of)
+                .map(EmployeeUtils::of)
                 .collect(Collectors.toList());
     }
 
@@ -44,7 +45,7 @@ public class EmployeeController {
     public EmployeeDto getEmployee(@PathVariable Long idEmployee) throws InterruptedException {
         Thread.sleep(500);
         Optional<Employee> optionalEmployee = employeeRepository.findById(idEmployee);
-        return EmployeeDto.of(optionalEmployee.get());
+        return EmployeeUtils.of(optionalEmployee.get());
     }
 
     @DeleteMapping("/employees/{idEmployee}")

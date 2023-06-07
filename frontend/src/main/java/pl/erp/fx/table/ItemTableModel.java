@@ -2,7 +2,6 @@ package pl.erp.fx.table;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
-import pl.erp.fx.dto.ItemDto;
 
 public class ItemTableModel {
 
@@ -16,10 +15,6 @@ public class ItemTableModel {
         this.name = new SimpleStringProperty(name);
         this.quantity = new SimpleDoubleProperty(quantity);
         this.quantityType = new SimpleStringProperty(quantityType);
-    }
-
-    public static ItemTableModel of(ItemDto dto) {
-        return new ItemTableModel(dto.getIdItem(), dto.getName(), dto.getQuantity(), dto.getQuantityType());
     }
 
     public Long getIdItem() {

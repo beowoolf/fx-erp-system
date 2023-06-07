@@ -10,6 +10,7 @@ import pl.erp.backend.entity.Item;
 import pl.erp.backend.repository.ItemRepository;
 import pl.erp.backend.repository.QuantityTypeRepository;
 import pl.erp.backend.service.ItemService;
+import pl.erp.backend.util.ItemUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,13 +27,13 @@ public class ItemController {
     @PostMapping("/items")
     public ItemDto newItem(@RequestBody ItemSaveDto dto) {
         if (dto.getIdItem() == null)
-            return ItemDto.of(itemService.saveItem(dto));
+            return ItemUtils.of(itemService.saveItem(dto));
         else {
             Item item = itemRepository.findById(dto.getIdItem()).get();
             item.setName(dto.getName());
             item.setQuantity(dto.getQuantity());
             item.setQuantityType(quantityTypeRepository.findById(dto.getIdQuantityType()).get());
-            return ItemDto.of(itemRepository.save(item));
+            return ItemUtils.of(itemRepository.save(item));
         }
     }
 
@@ -40,20 +41,20 @@ public class ItemController {
     public List<ItemDto> listItems() {
         return itemRepository.findAll()
                 .stream()
-                .map(ItemDto::of)
+                .map(ItemUtils::of)
                 .collect(Collectors.toList());
     }
 
     @GetMapping("/items/{idItem}")
     public ItemDto getItem(@PathVariable Long idItem) throws InterruptedException {
         Optional<Item> optionalItem = itemRepository.findById(idItem);
-        return ItemDto.of(optionalItem.get());
+        return ItemUtils.of(optionalItem.get());
     }
 
     @GetMapping("/item_edit_data/{idItem}")
     public ItemEditViewDto getItemEditDto(@PathVariable Long idItem) {
         Item item = itemRepository.findById(idItem).get();
-        ItemEditViewDto dto = ItemEditViewDto.of(item, quantityTypeRepository.findAll());
+        ItemEditViewDto dto = ItemUtils.of(item, quantityTypeRepository.findAll());
         return dto;
     }
 

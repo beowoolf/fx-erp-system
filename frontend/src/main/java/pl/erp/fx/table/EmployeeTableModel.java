@@ -1,7 +1,6 @@
 package pl.erp.fx.table;
 
 import javafx.beans.property.SimpleStringProperty;
-import pl.erp.fx.dto.EmployeeDto;
 
 public class EmployeeTableModel {
 
@@ -15,10 +14,6 @@ public class EmployeeTableModel {
         this.lastName = new SimpleStringProperty(lastName);
         this.salary = new SimpleStringProperty(salary);
         this.idEmployee = idEmployee;
-    }
-
-    public static EmployeeTableModel of(EmployeeDto dto) {
-        return new EmployeeTableModel(dto.getIdEmployee(), dto.getFirstName(), dto.getLastName(), dto.getSalary());
     }
 
     public String getFirstName() {

@@ -19,6 +19,7 @@ import pl.erp.fx.dto.EmployeeDto;
 import pl.erp.fx.factory.PopupFactory;
 import pl.erp.fx.rest.EmployeeRestClient;
 import pl.erp.fx.table.EmployeeTableModel;
+import pl.erp.fx.util.EmployeeUtils;
 
 import java.io.IOException;
 import java.net.URL;
@@ -192,7 +193,7 @@ public class EmployeeController implements Initializable {
         Thread thread = new Thread(() -> {
             List<EmployeeDto> employees = employeeRestClient.getEmployees();
             data.clear();
-            data.addAll(employees.stream().map(EmployeeTableModel::of).collect(Collectors.toList()));
+            data.addAll(employees.stream().map(EmployeeUtils::of).collect(Collectors.toList()));
         });
         thread.start();
     }

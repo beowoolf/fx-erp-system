@@ -21,6 +21,7 @@ import pl.erp.fx.dto.WarehouseModuleDto;
 import pl.erp.fx.rest.ItemRestClient;
 import pl.erp.fx.rest.WarehouseRestClient;
 import pl.erp.fx.table.ItemTableModel;
+import pl.erp.fx.util.ItemUtils;
 
 import java.io.IOException;
 import java.net.URL;
@@ -195,7 +196,7 @@ public class WarehouseController implements Initializable {
             WarehouseModuleDto warehouseModuleDto = warehouseRestClient.getWarehouseModuleData();
             data.clear();
             setWarehouseComboBoxItems(warehouseModuleDto);
-            data.addAll(warehouseModuleDto.getItemDtoList().stream().map(ItemTableModel::of).collect(Collectors.toList()));
+            data.addAll(warehouseModuleDto.getItemDtoList().stream().map(ItemUtils::of).collect(Collectors.toList()));
         });
         thread.start();
     }
@@ -205,7 +206,7 @@ public class WarehouseController implements Initializable {
             WarehouseModuleDto warehouseModuleDto = warehouseRestClient.getWarehouseModuleData(warehouseDto.getIdWarehouse());
             data.clear();
             setWarehouseComboBoxItems(warehouseModuleDto);
-            data.addAll(warehouseModuleDto.getItemDtoList().stream().map(ItemTableModel::of).collect(Collectors.toList()));
+            data.addAll(warehouseModuleDto.getItemDtoList().stream().map(ItemTableModelItemUtils::of).collect(Collectors.toList()));
         });
         thread.start();
     }

@@ -9,6 +9,7 @@ import pl.erp.backend.entity.Warehouse;
 import pl.erp.backend.repository.ItemRepository;
 import pl.erp.backend.repository.QuantityTypeRepository;
 import pl.erp.backend.repository.WarehouseRepository;
+import pl.erp.backend.util.ItemUtils;
 
 import java.util.Optional;
 
@@ -28,7 +29,7 @@ public class ItemService {
                     + dto.getIdWarehouse() + ", idQuantityType:" + dto.getIdQuantityType());
         Warehouse warehouse = warehouseOptional.get();
         QuantityType quantityType = quantityTypeOptional.get();
-        Item item = Item.of(dto);
+        Item item = ItemUtils.of(dto);
         item.setQuantityType(quantityType);
         item.setWarehouse(warehouse);
         return itemRepository.save(item);
