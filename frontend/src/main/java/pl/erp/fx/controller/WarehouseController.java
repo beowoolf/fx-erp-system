@@ -206,7 +206,7 @@ public class WarehouseController implements Initializable {
             WarehouseModuleDto warehouseModuleDto = warehouseRestClient.getWarehouseModuleData(warehouseDto.getIdWarehouse());
             data.clear();
             setWarehouseComboBoxItems(warehouseModuleDto);
-            data.addAll(warehouseModuleDto.getItemDtoList().stream().map(ItemTableModelItemUtils::of).collect(Collectors.toList()));
+            data.addAll(warehouseModuleDto.getItemDtoList().stream().map(ItemUtils::of).collect(Collectors.toList()));
         });
         thread.start();
     }
