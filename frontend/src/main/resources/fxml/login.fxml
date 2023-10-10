@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="loginAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            styleClass="background" xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="pl.erp.fx.controller.LoginController">
+    <children>
+        <Button fx:id="exitButton" layoutX="503.0" layoutY="27.0" maxHeight="40.0" maxWidth="40.0" minHeight="40.0"
+                minWidth="40.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" styleClass="exit-button"
+                text="X" textAlignment="CENTER" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0"/>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.bottomAnchor="60.0"
+              AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0">
+            <children>
+                <Label styleClass="title" text="ERP System"/>
+                <Label styleClass="text" text="Log in"/>
+                <HBox alignment="CENTER_RIGHT" prefWidth="200.0" spacing="20.0">
+                    <children>
+                        <Label styleClass="text" text="Login"/>
+                        <TextField fx:id="loginTextField"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets right="80.0"/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" prefWidth="200.0" spacing="20.0">
+                    <children>
+                        <Label styleClass="text" text="Password"/>
+                        <PasswordField fx:id="passwordTextField"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets right="80.0"/>
+                    </VBox.margin>
+                </HBox>
+                <Button fx:id="loginButton" mnemonicParsing="false" styleClass="login-button" text="Log in"/>
+            </children>
+        </VBox>
+    </children>
+    <stylesheets>
+        <URL value="@../css/login.css"/>
+        <URL value="@../css/global-colors.css"/>
+    </stylesheets>
+</AnchorPane>

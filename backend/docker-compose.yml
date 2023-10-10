@@ -1,0 +1,45 @@
+# Use root/toor as user/password credentials
+version: '3.1'
+
+services:
+
+  mysql:
+    image: mysql
+    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    # (this is just an example, not intended to be a production configuration)
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_DATABASE: erp
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      - PMA_ARBITRARY=1
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8082:8080"
+
+  erp-backend:
+    container_name: erp-backend
+    build: .
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: toor
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_DB_NAME: erp

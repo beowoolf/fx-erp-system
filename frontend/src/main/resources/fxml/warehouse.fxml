@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="warehouseBorderPane" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0"
+            xmlns="http://javafx.com/javafx/8.0.171" fx:controller="pl.erp.fx.controller.WarehouseController">
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="1024.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="addButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0"
+                        styleClass="warehouse-button" text="Add"/>
+                <Button fx:id="viewButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0"
+                        styleClass="warehouse-button" text="View"/>
+                <Button fx:id="editButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0"
+                        styleClass="warehouse-button" text="Edit"/>
+                <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0"
+                        styleClass="warehouse-button" text="Delete"/>
+                <Button fx:id="refreshButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0"
+                        styleClass="warehouse-button" text="Refresh"/>
+                <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                <Label styleClass="warehouse-label" text="Selected Warehouse:"/>
+                <ComboBox fx:id="warehouseComboBox" prefHeight="40.0" prefWidth="200.0"/>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" top="10.0"/>
+            </BorderPane.margin>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="warehouseTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER"/>
+    </center>
+    <stylesheets>
+        <URL value="@../css/warehouse.css"/>
+        <URL value="@../css/global-colors.css"/>
+    </stylesheets>
+</BorderPane>

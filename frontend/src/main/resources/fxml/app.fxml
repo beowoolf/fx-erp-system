@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import java.net.URL?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="appBorderPane" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8.0.171" fx:controller="pl.erp.fx.controller.AppController">
+    <center>
+        <Pane fx:id="appPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER"/>
+    </center>
+    <top>
+        <MenuBar styleClass="menu-background" BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem fx:id="employeeModuleMenuItem" mnemonicParsing="false" text="Employee Module"/>
+                        <MenuItem fx:id="warehouseModuleMenuItem" mnemonicParsing="false" text="Warehouse Module"/>
+                        <SeparatorMenuItem mnemonicParsing="false"/>
+                        <MenuItem fx:id="logoutMenuItem" mnemonicParsing="false" text="Logout"/>
+                        <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" text="Exit"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <stylesheets>
+        <URL value="@../css/app.css"/>
+        <URL value="@../css/global-colors.css"/>
+    </stylesheets>
+</BorderPane>

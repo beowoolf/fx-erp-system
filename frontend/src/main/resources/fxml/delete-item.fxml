@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="deleteItemBorderPane" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0"
+            styleClass="background" xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="pl.erp.fx.controller.DeleteItemController">
+    <stylesheets>
+        <URL value="@../css/crud.css"/>
+        <URL value="@../css/global-colors.css"/>
+    </stylesheets>
+    <center>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label styleClass="text" text="Are you sure that you want to delete:"/>
+                <Label fx:id="nameLabel" styleClass="text"/>
+                <Label fx:id="quantityLabel" styleClass="text"/>
+            </children>
+        </VBox>
+    </center>
+    <bottom>
+        <GridPane prefHeight="70.0" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0"
+                        styleClass="save-button" text="Delete" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets left="10.0"/>
+                    </GridPane.margin>
+                </Button>
+                <Button fx:id="cancelButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0"
+                        styleClass="cancel-button" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets right="10.0"/>
+                    </GridPane.margin>
+                </Button>
+            </children>
+        </GridPane>
+    </bottom>
+    <top>
+        <Label styleClass="title" text="Delete Item" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="10.0" top="10.0"/>
+            </BorderPane.margin>
+        </Label>
+    </top>
+</BorderPane>
