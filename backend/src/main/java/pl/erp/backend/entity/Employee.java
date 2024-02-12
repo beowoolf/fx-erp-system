@@ -3,7 +3,7 @@ package pl.erp.backend.entity;
 import lombok.Data;
 import pl.erp.backend.dto.EmployeeDto;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Data
 @Entity
