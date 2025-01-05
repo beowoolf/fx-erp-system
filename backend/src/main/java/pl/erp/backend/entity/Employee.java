@@ -1,9 +1,8 @@
 package pl.erp.backend.entity;
 
+import jakarta.persistence.*;
 import lombok.Data;
 import pl.erp.backend.dto.EmployeeDto;
-
-import jakarta.persistence.*;
 
 @Data
 @Entity
